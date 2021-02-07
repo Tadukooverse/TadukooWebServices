@@ -6,89 +6,100 @@
 	<groupId>com.github.tadukoo.web</groupId>
 	<artifactId>TadukooWebServiceParent</artifactId>
 	<version>0.1-Alpha-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>${project.artifactId}</name>
+	<description>Libraries for interacting with web services</description>
+	<url>http://github.com/Tadukooverse/TadukooWebServices</url>
+	<developers>
+		<developer>
+			<name>Logan Ferree (Tadukoo)</name>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://github.com/Tadukooverse/TadukooWebServices/blob/master/LICENSE</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>https://github.com/Tadukooverse/TadukooWebServices</url>
+		<connection>
+			scm:git:git://github.com/Tadukooverse/TadukooWebServices.git
+		</connection>
+		<developerConnection>
+			scm:git:ssh://git@github.com:Tadukooverse/TadukooWebServices.git
+		</developerConnection>
+	</scm>
 	<modules>
 		<module>TadukooREST</module>
 	</modules>
-	<packaging>pom</packaging>
 	<properties>
-		<!-- Java Versions -->
-		<java.source.version>14</java.source.version>
-		<java.target.version>14</java.target.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-		<!-- JUnit Versions -->
-		<junit.jupiter.version>5.5.2</junit.jupiter.version>
-		<junit.platform.version>1.5.2</junit.platform.version>
+		<!-- Java and JUnit Versions -->
+		<java.version>15</java.version>
+		<junit.jupiter.version>5.7.0</junit.jupiter.version>
+		<junit.platform.version>1.7.0</junit.platform.version>
+		
+		<!-- Maven Plugin Version -->
+		<maven.compiler.version>3.8.1</maven.compiler.version>
+		<maven.surefire.version>3.0.0-M4</maven.surefire.version>
+		<maven.source.version>3.2.1</maven.source.version>
+		<maven.javadoc.version>3.2.0</maven.javadoc.version>
+		<maven.gpg.version>1.6</maven.gpg.version>
 		
 		<!-- Directories -->
 		<directory.source>src</directory.source>
 		<directory.test>junit</directory.test>
 		<directory.resource>resource</directory.resource>
+		<directory.test-resource>junit-resource</directory.test-resource>
 		<directory.eclipse.annotationprocessing>.apt_generated</directory.eclipse.annotationprocessing>
 		
-		<!-- TadukooUtil Group ID -->
-		<tadukoo.util.groupID>com.github.tadukoo.util</tadukoo.util.groupID>
+		<!-- JUnit Information -->
+		<junit.jupiter.groupID>org.junit.jupiter</junit.jupiter.groupID>
+		<junit.jupiter.artifactID>junit-jupiter-engine</junit.jupiter.artifactID>
+		<junit.platform.groupID>org.junit.platform</junit.platform.groupID>
+		<junit.platform.artifactID>junit-platform-runner</junit.platform.artifactID>
 		
-		<!-- TadukooLang Info -->
-		<tadukoo.util.lang.artifactID>TadukooLang</tadukoo.util.lang.artifactID>
-		<tadukoo.util.lang.version>0.1-Alpha-SNAPSHOT</tadukoo.util.lang.version>
+		<!-- Tadukoo Versions -->
+		<tadukoo.parsing.version>0.2.3-Alpha</tadukoo.parsing.version>
 		
-		<!-- TadukooAnnotationProcessor Info -->
-		<tadukoo.util.annotationprocessor.artifactID>TadukooAnnotationProcessor</tadukoo.util.annotationprocessor.artifactID>
-		<tadukoo.util.annotationprocessor.version>${tadukoo.util.lang.version}</tadukoo.util.annotationprocessor.version>
+		<!-- Specific Tadukoo Parsing Versions -->
+		<tadukoo.parsing.json.version>${tadukoo.parsing.version}</tadukoo.parsing.json.version>
 		
-		<!-- TadukooDatabase Info -->
-		<tadukoo.util.database.artifactID>TadukooDatabase</tadukoo.util.database.artifactID>
-		<tadukoo.util.database.version>${tadukoo.util.lang.version}</tadukoo.util.database.version>
-		
-		<!-- TadukooFileFormat Info -->
-		<tadukoo.util.fileformat.artifactID>TadukooFileFormat</tadukoo.util.fileformat.artifactID>
-		<tadukoo.util.fileformat.version>${tadukoo.util.lang.version}</tadukoo.util.fileformat.version>
-		
-		<!-- TadukooLookAndFeel Info -->
-		<tadukoo.util.lookandfeel.artifactID>TadukooLookAndFeel</tadukoo.util.lookandfeel.artifactID>
-		<tadukoo.util.lookandfeel.version>${tadukoo.util.lang.version}</tadukoo.util.lookandfeel.version>
-		
-		<!-- TadukooUtil Info -->
-		<tadukoo.util.artifactID>TadukooUtil</tadukoo.util.artifactID>
-		<tadukoo.util.version>${tadukoo.util.lang.version}</tadukoo.util.version>
+		<!-- Tadukoo Parsing Info -->
+		<tadukoo.parsing.groupID>com.github.tadukoo.parsing</tadukoo.parsing.groupID>
+		<tadukoo.parsing.json.artifactID>TadukooJSON</tadukoo.parsing.json.artifactID>
 	</properties>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<dependencyManagement>
 		<dependencies>
-			<!-- TadukooLang Dependency -->
+			<!-- Tadukoo JSON Dependency -->
 			<dependency>
-				<groupId>${tadukoo.util.groupID}</groupId>
-				<artifactId>${tadukoo.util.lang.artifactID}</artifactId>
-				<version>${tadukoo.util.lang.version}</version>
+				<groupId>${tadukoo.parsing.groupID}</groupId>
+				<artifactId>${tadukoo.parsing.json.artifactID}</artifactId>
+				<version>${tadukoo.parsing.json.version}</version>
 			</dependency>
-			<!-- TadukooAnnotationProcessor Dependency -->
+			<!-- JUnit Dependencies -->
 			<dependency>
-				<groupId>${tadukoo.util.groupID}</groupId>
-				<artifactId>${tadukoo.util.annotationprocessor.artifactID}</artifactId>
-				<version>${tadukoo.util.annotationprocessor.version}</version>
+				<groupId>${junit.jupiter.groupID}</groupId>
+				<artifactId>${junit.jupiter.artifactID}</artifactId>
+				<version>${junit.jupiter.version}</version>
 			</dependency>
-			<!-- TadukooDatabase Dependency -->
 			<dependency>
-				<groupId>${tadukoo.util.groupID}</groupId>
-				<artifactId>${tadukoo.util.database.artifactID}</artifactId>
-				<version>${tadukoo.util.database.version}</version>
-			</dependency>
-			<!-- TadukooFileFormat Dependency -->
-			<dependency>
-				<groupId>${tadukoo.util.groupID}</groupId>
-				<artifactId>${tadukoo.util.fileformat.artifactID}</artifactId>
-				<version>${tadukoo.util.fileformat.version}</version>
-			</dependency>
-			<!-- TadukooLookAndFeel Dependency -->
-			<dependency>
-				<groupId>${tadukoo.util.groupID}</groupId>
-				<artifactId>${tadukoo.util.lookandfeel.artifactID}</artifactId>
-				<version>${tadukoo.util.lookandfeel.version}</version>
-			</dependency>
-			<!-- TadukooUtil Dependency -->
-			<dependency>
-				<groupId>${tadukoo.util.groupID}</groupId>
-				<artifactId>${tadukoo.util.artifactID}</artifactId>
-				<version>${tadukoo.util.version}</version>
+				<groupId>${junit.platform.groupID}</groupId>
+				<artifactId>${junit.platform.artifactID}</artifactId>
+				<version>${junit.platform.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -97,13 +108,95 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.0</version>
+					<version>${maven.compiler.version}</version>
 					<configuration>
-						<source>${java.source.version}</source>
-						<target>${java.target.version}</target>
+						<release>${java.version}</release>
 					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven.surefire.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.8.6</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>report</id>
+							<phase>test</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>1.6.8</version>
+					<extensions>true</extensions>
+					<configuration>
+						<serverId>ossrh</serverId>
+						<nexusUrl>https://oss.sonatype.org</nexusUrl>
+						<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven.source.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven.javadoc.version}</version>
+					<configuration>
+						<release>${java.version}</release>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven.gpg.version}</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 </project>
