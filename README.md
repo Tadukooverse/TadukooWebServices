@@ -12,4 +12,5 @@ Libraries for interacting with web services
 Tadukoo REST is used to interact with REST APIs.
 
 ## Current Plans
-Check out the [project page](https://tadukooverse.github.io/projects/TadukooWebservices.html) for information about current plans for Tadukoo Parsing.
+Check out the [project page](https://tadukooverse.github.io/projects/TadukooWebservices.html) for information about 
+current plans for Tadukoo Web Services.
