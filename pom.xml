@@ -63,7 +63,7 @@
 		<junit.platform.artifactID>junit-platform-runner</junit.platform.artifactID>
 		
 		<!-- Tadukoo Versions -->
-		<tadukoo.parsing.version>0.3-Alpha</tadukoo.parsing.version>
+		<tadukoo.parsing.version>0.3.1-Alpha-SNAPSHOT</tadukoo.parsing.version>
 		
 		<!-- Specific Tadukoo Parsing Versions -->
 		<tadukoo.parsing.json.version>${tadukoo.parsing.version}</tadukoo.parsing.json.version>
