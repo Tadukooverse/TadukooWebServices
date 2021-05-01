@@ -7,7 +7,7 @@
 	<parent>
 		<artifactId>TadukooWebServiceParent</artifactId>
 		<groupId>com.github.tadukoo.web</groupId>
-		<version>0.1.1-Alpha</version>
+		<version>0.1.2-Alpha-SNAPSHOT</version>
 	</parent>
 	<dependencies>
 		<!-- Tadukoo JSON -->
