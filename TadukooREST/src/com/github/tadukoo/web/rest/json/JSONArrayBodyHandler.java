@@ -37,6 +37,8 @@ public class JSONArrayBodyHandler<Item> implements HttpResponse.BodyHandler<JSON
 	}
 	
 	/**
+	 * @param clazz The class to convert the response items into
+	 * @param <Item> The type of class to convert the response items into
 	 * @return A Response Body Subscriber that will convert a response into a {@link JSONArray}
 	 */
 	@SuppressWarnings("unchecked")
